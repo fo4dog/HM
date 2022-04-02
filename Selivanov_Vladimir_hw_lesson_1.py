@@ -12,25 +12,25 @@ def convert_time(duration: int) -> str:
     if days == 0:
         days = ''
     else:
-        days = str(days) + ' дн '
+        days = positive_or_negative + str(days) + ' дн '
     if hours == 0:
         hours = ''
     else:
-        hours = str(hours) + ' час '
+        hours = positive_or_negative + str(hours) + ' час '
     if minutes == 0:
         minutes = ''
     else:
-        minutes = str(minutes) + ' мин '
+        minutes = positive_or_negative + str(minutes) + ' мин '
     if seconds == 0:
         seconds = ''
     else:
-        seconds = str(seconds) + ' сек'
+        seconds = positive_or_negative + str(seconds) + ' сек'
     Time = f'{days}{hours}{minutes}{seconds}'
 
     return Time
 
 
-duration = 120121
+duration = -51200
 result = convert_time(duration)
 print(result)
 
