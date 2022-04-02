@@ -1,23 +1,36 @@
 # Task 1
 
 def convert_time(duration: int) -> str:
+    positive_or_negative = ''
+    if duration < 0:
+        duration = -1 * duration
+        positive_or_negative = '-'
     days = duration // 86400
     hours = (duration // 3600) % 24
     minutes = (duration // 60) % 60
     seconds = duration % 60
-    if days != 0:
-        Time = f'{days} дн {hours} час {minutes} мин {seconds} сек'
-    elif hours != 0:
-        Time = f'{hours} час {minutes} мин {seconds} сек'
-    elif minutes != 0:
-        Time = f'{minutes} мин {seconds} сек'
+    if days == 0:
+        days = ''
     else:
-        Time = f'{seconds} сек'
+        days = str(days) + ' дн '
+    if hours == 0:
+        hours = ''
+    else:
+        hours = str(hours) + ' час '
+    if minutes == 0:
+        minutes = ''
+    else:
+        minutes = str(minutes) + ' мин '
+    if seconds == 0:
+        seconds = ''
+    else:
+        seconds = str(seconds) + ' сек'
+    Time = f'{days}{hours}{minutes}{seconds}'
 
     return Time
 
 
-duration = 400153
+duration = 120121
 result = convert_time(duration)
 print(result)
 
@@ -88,4 +101,3 @@ def transform_string(number: int) -> str:
 
 for n in range(1, 101):  # по заданию учитываем только значения от 1 до 100
     print(transform_string(n))
-print(type(24//7))
